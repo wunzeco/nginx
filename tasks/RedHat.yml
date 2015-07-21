@@ -1,0 +1,11 @@
+---
+- name: Install selinux python module
+  yum: name=libselinux-python state=present
+
+- name: Add epel package repos
+  copy: src=epel.repo dest=/etc/yum.repos.d/epel_ansible.repo
+
+- name: Install nginx packages 
+  yum: name={{ item }} state=present
+  with_items: nginx_redhat_pkg
+

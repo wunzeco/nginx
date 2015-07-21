@@ -1,0 +1,7 @@
+---
+
+- name: Install nginx packages 
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: nginx_ubuntu_pkg
+  environment: nginx_env
+
